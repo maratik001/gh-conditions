@@ -1,0 +1,19 @@
+name: continue-on-error example
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    strategy:
+      matrix:
+        node-version: [14, 16, 18]
+        os: [ubuntu, windows, macos]
+    runs-on: ${{ matrix.os }}-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
