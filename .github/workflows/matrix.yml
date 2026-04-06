@@ -1,4 +1,4 @@
-name: continue-on-error example
+name: matrix example
 on:
   push:
     branches:
